@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Shield, Lock, Eye, Server, Trash2, Cookie, Globe, Mail } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import { Card } from '@/components/ui/Card';
 import { type Locale } from '@/lib/i18n/config';
 
@@ -249,6 +250,7 @@ export default function PrivacyPageClient({ locale }: PrivacyPageClientProps) {
           </div>
         </section>
       </main>
+      <Footer locale={locale} />
 
     </div>
   );

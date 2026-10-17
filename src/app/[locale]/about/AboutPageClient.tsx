@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { Shield, Zap, Globe, Heart, Code, Users, ArrowRight } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { type Locale } from '@/lib/i18n/config';
@@ -169,6 +170,7 @@ export default function AboutPageClient({ locale }: AboutPageClientProps) {
           </div>
         </section>
       </main>
+      <Footer locale={locale} />
 
     </div>
   );
