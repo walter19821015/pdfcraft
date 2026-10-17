@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { Mail, MessageSquare, Github, Twitter, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { type Locale } from '@/lib/i18n/config';
@@ -282,7 +281,6 @@ export default function ContactPageClient({ locale }: ContactPageClientProps) {
         </section>
       </main>
 
-      <Footer locale={locale} />
     </div>
   );
 }

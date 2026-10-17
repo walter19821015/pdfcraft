@@ -4,7 +4,6 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { ArrowRight, Zap, Wrench, Lock, Sparkles, Edit, FileImage, FolderOpen, Settings, ShieldCheck, Star, LayoutGrid } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
 import { ToolGrid } from '@/components/tools/ToolGrid';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -321,7 +320,6 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         </section>
       </main>
 
-      <Footer locale={locale} />
     </div>
   );
 }

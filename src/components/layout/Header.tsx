@@ -4,7 +4,7 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Search, Menu, X, Command, Github } from 'lucide-react';
+import { Search, Menu, X, Command } from 'lucide-react';
 import { type Locale } from '@/lib/i18n/config';
 import { Button } from '@/components/ui/Button';
 import { RecentFilesDropdown } from '@/components/common/RecentFilesDropdown';
@@ -158,9 +158,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
 
   const navItems = [
     { href: `/${locale}`, label: t('navigation.home') },
-    { href: `/${locale}/studio`, label: 'Studio' },
     { href: `/${locale}/tools`, label: t('navigation.tools') },
-    { href: `/${locale}/workflow`, label: t('navigation.workflow') || 'Workflow' },
     { href: `/${locale}/about`, label: t('navigation.about') },
     { href: `/${locale}/faq`, label: t('navigation.faq') },
   ];
@@ -210,23 +208,13 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
             aria-label="Main navigation"
           >
             {navItems.map((item) => {
-              const isStudio = item.href.endsWith('/studio');
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all inline-flex items-center gap-1.5 ${
-                    isStudio
-                      ? 'text-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-primary)/0.1)]'
-                      : 'text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))/0.5]'
-                  }`}
+                  className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all inline-flex items-center gap-1.5 text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))/0.5]`}
                 >
                   <span>{item.label}</span>
-                  {isStudio && (
-                    <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-[hsl(var(--color-primary))] text-white leading-none">
-                      NEW
-                    </span>
-                  )}
                 </Link>
               );
             })}
@@ -333,17 +321,6 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
             {/* Update Check Button */}
             <UpdateCheckButton />
 
-            {/* GitHub Repository Link */}
-            <a
-              href="https://github.com/PDFCraftTool/pdfcraft"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex items-center justify-center h-9 w-9 rounded-lg text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))/0.5] transition-all"
-              aria-label="GitHub Repository"
-            >
-              <Github className="h-5 w-5" aria-hidden="true" />
-            </a>
-
             {/* Theme Toggle */}
             <ThemeToggle />
 
@@ -379,41 +356,18 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
           >
             <ul className="flex flex-col gap-2 p-2">
               {navItems.map((item) => {
-                const isStudio = item.href.endsWith('/studio');
                 return (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className={`flex items-center justify-between px-4 py-3 text-base font-medium rounded-lg transition-colors ${
-                        isStudio
-                          ? 'text-[hsl(var(--color-primary))] bg-[hsl(var(--color-primary)/0.06)] hover:bg-[hsl(var(--color-primary)/0.12)]'
-                          : 'text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))]'
-                      }`}
+                      className={`flex items-center justify-between px-4 py-3 text-base font-medium rounded-lg transition-colors text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))]`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <span>{item.label}</span>
-                      {isStudio && (
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[hsl(var(--color-primary))] text-white">
-                          NEW
-                        </span>
-                      )}
                     </Link>
                   </li>
                 );
               })}
-              {/* GitHub Link in Mobile Menu */}
-              <li>
-                <a
-                  href="https://github.com/PDFCraftTool/pdfcraft"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 text-base font-medium text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))] rounded-lg transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <Github className="h-5 w-5" aria-hidden="true" />
-                  GitHub
-                </a>
-              </li>
             </ul>
           </nav>
         )}

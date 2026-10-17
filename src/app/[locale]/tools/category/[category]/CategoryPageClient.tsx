@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
 import { ToolGrid } from '@/components/tools/ToolGrid';
 import { getToolsByCategory } from '@/config/tools';
 import { type Locale } from '@/lib/i18n/config';
@@ -79,7 +78,6 @@ export default function CategoryPageClient({ locale, category, localizedToolCont
                 </div>
             </main>
 
-            <Footer locale={locale} />
         </div>
     );
 }
