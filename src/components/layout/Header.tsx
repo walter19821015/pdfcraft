@@ -12,7 +12,6 @@ import { searchTools, SearchResult } from '@/lib/utils/search';
 import { getToolContent } from '@/config/tool-content';
 import { getAllTools } from '@/config/tools';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
-import { UpdateCheckButton } from '@/components/common/UpdateCheckButton';
 
 export interface HeaderProps {
   locale: Locale;
@@ -329,9 +328,6 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
                 processedWith: t('recentFiles.processedWith') || 'Processed with',
               }}
             />
-
-            {/* Update Check Button */}
-            <UpdateCheckButton />
 
             {/* Theme Toggle */}
             <ThemeToggle />
